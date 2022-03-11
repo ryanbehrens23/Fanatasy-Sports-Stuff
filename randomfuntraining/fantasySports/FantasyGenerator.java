@@ -1,28 +1,60 @@
-package randomfuntraining.fantasySports.fantasySports;
+package randomfuntraining.fantasySports;
 
 import java.util.*;
 
 public class FantasyGenerator {
-    private final static String[] teams = new String[]{"Penetrate Down Low", "Barrett-tone A-Capela", "Rim Jobs", "Kawhi not Rubio On my Gasol",
-            "All-STAR Ball handlers", "I Get Injured", "KAT in the Hat", "The Monstars", "Chitown BallHogs",
-            "Hillbilly Hickdeads", "Dirty Pascal", "Men's Butts Drive Me Nuts"};
-    private final static String[] draftOrder = FantasyGenerator.printDraftOrder(teams);
+    private final static String[] teams = new String[]{""};
+    private final static String[] draftOrder = new FantasyGenerator().printDraftOrder(teams);
     private final static int[] number = new int[]{1,2,3,4,5,6,7,8,9,10,11,12};
+    private final static String[] bud = new String[]{""};
+    private final static String[] miller = new String[]{""};
     public static void main(String[] args){
-
-        List<Teams> teamsList = getFantasyBasketballTeams();
-        Collections.shuffle(teamsList);
-        printTeamsList(teamsList);
+        //Creates teamList list from the teams listed teams String Array
+//        List<Teams> teamsList = getFantasyBasketballTeams();
+//        Collections.shuffle(teamsList);
+//        printTeamsList(teamsList);
 
 //        Random random = new Random();
-//
+
+        //Prints out draft order
 //        System.out.println("Pick #" + Arrays.toString(draftOrder) + " goes to " + Arrays.toString(printDraftOrder(teams)));
 
-        System.out.println("Bud Division: \n" + teamsList.subList(0, 6));
-        System.out.println("Miller Division: \n" + teamsList.subList(6, 12));
+        //This prints out separate divisions
+//        System.out.println("Bud Division: \n" + teamsList.subList(0, 6));
+//        System.out.println("Miller Division: \n" + teamsList.subList(6, 12));
+
+        //This method is used to choose teams head to head
+        getBudVsMillerH2H();
     }
 
-    public static String[] printDraftOrder(String[] team) {
+    public static void getBudVsMillerH2H() {
+        Collections.shuffle(Arrays.asList(bud));
+        Collections.shuffle(Arrays.asList(miller));
+        Boolean[] budChosen = new Boolean[bud.length];
+        Boolean[] millerChosen = new Boolean[miller.length];
+        Arrays.fill(budChosen, false);
+        Arrays.fill(millerChosen, false);
+        int position = 0;
+        while (true) {
+            Random rand = new Random();
+            int randomInt1 = rand.nextInt(bud.length);
+            int randomInt2 = rand.nextInt(miller.length);
+            // get random person
+            String person1 = bud[randomInt1];
+            String person2 = miller[randomInt2];
+            if (!person1.equals(person1) && !person2.equals(person2) && budChosen[randomInt1] == false && millerChosen[randomInt2] == false) {
+                if (!person1.equals(bud[position]) && !person1.equals(miller[position])) {
+                    System.out.println(bud[position] + " vs " + miller[position]);
+                    position++;
+                    budChosen[randomInt1] = true;
+                    millerChosen[randomInt2] = true;
+                }
+                if (isArrCompleted(budChosen) && isArrCompleted(millerChosen)) break;
+            }
+        }
+    }
+
+    public String[] printDraftOrder(String[] team) {
         // for string array name is null then return null
         if (team == null) return null;
         // for string array name length is zero then return an empty string array
@@ -95,30 +127,30 @@ public class FantasyGenerator {
     public static List<Teams> getFantasyBasketballTeams() {
         List<Teams> teamsList = new ArrayList<>();
 
-        Teams ryan = new Teams("Penetrate Down Low");
-        teamsList.add(ryan);
-        Teams randy = new Teams("Barrett-tone A-Capela");
-        teamsList.add(randy);
-        Teams kate = new Teams("Rim Jobs");
-        teamsList.add(kate);
-        Teams aj = new Teams("Kawhi not Rubio On my Gasol");
-        teamsList.add(aj);
-        Teams cam = new Teams("All-STAR Ball handlers");
-        teamsList.add(cam);
-        Teams nick = new Teams("I Get Injured");
-        teamsList.add(nick);
-        Teams tony = new Teams("KAT in the Hat");
-        teamsList.add(tony);
-        Teams jake = new Teams("The Monstars");
-        teamsList.add(jake);
-        Teams opi = new Teams("Chitown BallHogs");
-        teamsList.add(opi);
-        Teams kevin = new Teams("Hillbilly Hickdeads");
-        teamsList.add(kevin);
-        Teams mike = new Teams("Dirty Pascal");
-        teamsList.add(mike);
-        Teams dennis = new Teams("Men's Butts Drive Me Nuts");
-        teamsList.add(dennis);
+        Teams one = new Teams("");
+        teamsList.add(one);
+        Teams two = new Teams("");
+        teamsList.add(two);
+        Teams three = new Teams("");
+        teamsList.add(three);
+        Teams four = new Teams("l");
+        teamsList.add(four);
+        Teams five = new Teams("");
+        teamsList.add(five);
+        Teams six = new Teams("");
+        teamsList.add(six);
+        Teams seven = new Teams("");
+        teamsList.add(seven);
+        Teams eight = new Teams("");
+        teamsList.add(eight);
+        Teams nine = new Teams("");
+        teamsList.add(nine);
+        Teams ten = new Teams("");
+        teamsList.add(ten);
+        Teams eleven = new Teams("");
+        teamsList.add(eleven);
+        Teams tweleve = new Teams("");
+        teamsList.add(tweleve);
         return teamsList;
     }
 }
