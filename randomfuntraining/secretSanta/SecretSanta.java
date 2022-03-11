@@ -1,4 +1,4 @@
-package com.deere.JavaTraining.randomfuntraining.secretSanta;
+package randomfuntraining.secretSanta;
 
 import java.util.Arrays;
 import java.util.Random;

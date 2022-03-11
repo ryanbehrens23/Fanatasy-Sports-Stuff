@@ -1,4 +1,4 @@
-package com.deere.JavaTraining.randomfuntraining.fantasySports;
+package randomfuntraining.fantasySports;
 
 public class Teams {
     private static int numberSequence = 0;

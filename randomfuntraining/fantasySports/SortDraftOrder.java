@@ -1,4 +1,4 @@
-package com.deere.JavaTraining.randomfuntraining.fantasySports;
+package randomfuntraining.fantasySports;
 
 import java.util.Comparator;
 
