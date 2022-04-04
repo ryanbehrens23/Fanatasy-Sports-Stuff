@@ -2,9 +2,9 @@ package randomfuntraining.fantasySports;
 
 import java.util.*;
 
-public class FantasyGenerator {
+public class GolfTeams {
     private final static String[] teams = new String[]{""};
-    private final static String[] draftOrder = new FantasyGenerator().printDraftOrder(teams);
+    private final static String[] draftOrder = new GolfTeams().printDraftOrder(teams);
     private final static int[] number = new int[]{1,2,3,4,5,6,7,8,9,10,11,12};
     private final static String[] bud = new String[]{""};
     private final static String[] miller = new String[]{""};
@@ -28,38 +28,8 @@ public class FantasyGenerator {
 //        System.out.println("Miller Division: \n" + teamsList.subList(6, 12));
 
         //This method is used to choose teams head to head
-        //getH2HSingles();
-        getH2HDoules();
+        getH2HDoubles();
         //getH2HTeams();
-    }
-
-    public static void getH2HSingles() {
-        Collections.shuffle(Arrays.asList(teamA));
-        Collections.shuffle(Arrays.asList(teamB));
-        Boolean[] teamAChosen = new Boolean[teamA.length];
-        Boolean[] teamBChosen = new Boolean[teamB.length];
-        Arrays.fill(teamAChosen, false);
-        Arrays.fill(teamBChosen, false);
-        int position = 0;
-        while (true) {
-            Random rand = new Random();
-            int randomInt1 = rand.nextInt(teamA.length);
-            int randomInt2 = rand.nextInt(teamB.length);
-            // get random person
-            String person1 = teamA[randomInt1];
-            String person2 = teamB[randomInt2];
-            for (int week = 1; week <=6; week++) {
-                if (!person1.equals(person1) && !person2.equals(person2) && budChosen[randomInt1] == false && millerChosen[randomInt2] == false) {
-                    if (!person1.equals(teamA[position]) && !person1.equals(teamB[position])) {
-                        System.out.println(teamA[position] + " vs " + teamB[position]);
-                        position++;
-                        teamAChosen[randomInt1] = true;
-                        teamBChosen[randomInt2] = true;
-                    }
-                    if (isArrCompleted(teamAChosen) && isArrCompleted(teamBChosen)) break;
-                }
-            }
-        }
     }
 
     public static void getH2HDoubles() {
@@ -90,8 +60,8 @@ public class FantasyGenerator {
             for (int week = 1; week <= 6; week++) {
                 if (!person1.equals(person1) && !person2.equals(person2) && !person3.equals(person3) && !person4.equals(person4) && teamAChosen[randomInt1] == false && teamBChosen[randomInt2] == false && teamCChosen[randomInt3] == false && teamDChosen[randomInt4] == false) {
                     if (!person1.equals(teamA[position]) && !person1.equals(teamB[position]) && !person1.equals(teamC[position]) && !person1.equals(teamD[position])) {
-                        System.out.println(teamA[]+" vs " + teamB[]);
-                        System.out.println(teamC[]+" vs " + teamD[]);
+                        System.out.println(teamA[position]+" vs " + teamB[position]);
+                        System.out.println(teamC[position]+" vs " + teamD[position]);
                         position++;
                         teamAChosen[randomInt1] = true;
                         teamBChosen[randomInt2] = true;
@@ -191,16 +161,17 @@ public class FantasyGenerator {
         return true;
     }
 
-    public static void printTeamsList(List<Teams> teamsList) {
+    public static <Teams> void printTeamsList(List<Teams> teamsList) {
         for (int order = 0; order < teams.length; order++) {
             System.out.println("Pick #" + number[order] + " goes to " + draftOrder[order]);
             if (draftOrder[order].equals(teams[order]))
                 System.out.println("ERROR: " + teams[order]);
         }
     }
+}
 
 
-    public static List<Teams> getFantasyBasketballTeams() {
+    /*public static <Teams> List<Teams> getFantasyBasketballTeams() {
         List<Teams> teamsList = new ArrayList<>();
 
         Teams one = new Teams("");
@@ -229,4 +200,4 @@ public class FantasyGenerator {
         teamsList.add(tweleve);
         return teamsList;
     }
-}
+}*/
